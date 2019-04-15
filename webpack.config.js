@@ -20,7 +20,12 @@ module : {
             
         }
     ]
-}
-
+},
+/*  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+        //minifying the bundle
+    })
+]
+  */
 };
  

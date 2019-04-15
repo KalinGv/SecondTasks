@@ -1,0 +1,28 @@
+{
+  "name": "proj2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:dev": "webpack -d",
+    "build:prod": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KalinGv/SecondTasks.git"
+  },
+  "author": "",
+  "license": "MIT", 
+  "bugs": {
+    "url": "https://github.com/KalinGv/SecondTasks/issues"
+  },
+  "homepage": "https://github.com/KalinGv/SecondTasks#readme",
+  "devDependencies": {
+    "css-loader": "^2.1.1",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.3.1"
+  }
+}

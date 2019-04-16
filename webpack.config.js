@@ -1,6 +1,14 @@
 var path = require('path');
-var webpack = require('webpack');
+/* var ExtractTextPlugin = require(extract-text-webpack-plugin);
 
+
+var extractPlugin = new ExtractTextPlugin({
+
+filename: 'style.css'
+
+});
+
+ */
 module.exports = {
 
 entry: "./src/js/app.js",
@@ -12,20 +20,40 @@ publicPath: '/dist'
 module : {
     rules: [
         {
-            test: /\.css$/,
+            test: /\.js$/,
             use: [
-                'style-loader',
-                'css-loader'
-            ] 
+                    {
+                        loader: 'babel-loader',
+                       
+                    }             
+                ]   
+        },
+        {
+            test: /\.scss$/,
+            use: [
+                
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader'
+                    },
+                    {
+                        loader: 'sass-loader'
+                    }
+                
+                
+            ]
+                
+        },
             
-        }
+             
+            
+        
     ]
 },
 /*  plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-        //minifying the bundle
-    })
-]
-  */
+    extractPlugin
+]  */
 };
  

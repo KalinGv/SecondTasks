@@ -1,5 +1,5 @@
-import '../css/main.css';
-import '../css/input-elements.css';
+import '../css/main.scss';
+import '../css/input-elements.scss';
 
 import {secretButton, secretParagraph} from './dom-loader';
 

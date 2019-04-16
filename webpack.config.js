@@ -1,14 +1,9 @@
 var path = require('path');
-/* var ExtractTextPlugin = require(extract-text-webpack-plugin);
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var MiniCssExtractPlugin = require('mini-css-extract-plugin');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 
-var extractPlugin = new ExtractTextPlugin({
-
-filename: 'style.css'
-
-});
-
- */
 module.exports = {
 
 entry: "./src/js/app.js",
@@ -21,6 +16,7 @@ module : {
     rules: [
         {
             test: /\.js$/,
+            exclude: /node_modules/,
             use: [
                     {
                         loader: 'babel-loader',
@@ -30,30 +26,37 @@ module : {
         },
         {
             test: /\.scss$/,
-            use: [
+            use: [       
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                    
                 
-                    {
-                        loader: 'style-loader'
-                    },
-                    {
-                        loader: 'css-loader'
-                    },
-                    {
-                        loader: 'sass-loader'
-                    }
-                
-                
-            ]
+                ]
                 
         },
+      
+        {
+            test: /\.(jpg|png|svg|gif)$/,
+            use: [
+                {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'img/',
+                        publicPath: 'img/'
+                    }
+                }
+            ]
+        },
+        {
+
             
-             
-            
+        }, 
+        
         
     ]
 },
-/*  plugins: [
-    extractPlugin
-]  */
+
 };
  

@@ -6,17 +6,24 @@ const ExtractTexPlugin = require('extract-text-webpack-plugin');
 module.exports = {
 
 entry: {
-main : "./src/js/app.js",
+app : "./src/js/app.js",
+
 
 },
 output: {
    
     path: path.resolve(__dirname, 'dist'),
     filename: "[name].bundle.js",
+    publicPath: '/dist'
 
-publicPath: '/dist'
 },
 
+devServer: {
+    contentBase: './dist',
+    hot: true,
+    livereload: true,
+  },
+  mode: 'development',
 module : {
     rules: [
         
@@ -34,6 +41,7 @@ module : {
                 ]   
         },
         {
+            include: [path.resolve(__dirname, 'src')],
             test: /\.scss$/,
             use: [       
                     'style-loader',
@@ -45,20 +53,18 @@ module : {
         },
       
         {
+            include: [path.resolve(__dirname, 'src')],
             test: /\.(jpg|png|svg|gif)$/,
             use: [
                 {
                     loader: 'file-loader',
                     options: {
-                        name: '[name].[ext]',
+                        filename: '[name].[ext]',
                     }
                 }
             ]
         },
-        {
-
-            
-        }, 
+  
         
         
     ]

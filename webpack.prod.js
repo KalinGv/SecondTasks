@@ -4,6 +4,7 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTexPlugin = require('extract-text-webpack-plugin');
 const Obfuscator = require('webpack-obfuscator');
+const MinifyCss = require('mini-css-extract-plugin')
 
 module.exports = {
 
@@ -21,11 +22,7 @@ output: {
 },
 
 
-devServer: {
-    contentBase: './dist',
-    
 
-  },
   mode: 'production',
 module : {
     rules: [
@@ -75,7 +72,11 @@ module : {
  plugins: [
     new Obfuscator({
         rotateUnicodeArray: true
-    }, [])
+    }, []),
+    new MinifyCss ({
+        filename: '[name].bundle.js',
+
+    })
 ] 
 };
  

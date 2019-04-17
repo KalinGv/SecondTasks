@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTexPlugin = require('extract-text-webpack-plugin');
+const hot = require('webpack-hot-middleware');
 
 module.exports = {
 
@@ -20,8 +21,7 @@ output: {
 
 devServer: {
     contentBase: './dist',
-    hot: true,
-    livereload: true,
+
   },
   mode: 'development',
 module : {

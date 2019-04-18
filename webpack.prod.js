@@ -1,8 +1,8 @@
 
 const webpack = require('webpack');
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtractTexPlugin = require('extract-text-webpack-plugin');
+//const CleanWebpackPlugin = require('clean-webpack-plugin');
+//const ExtractTexPlugin = require('extract-text-webpack-plugin');
 const Obfuscator = require('webpack-obfuscator');
 const MinifyCss = require('mini-css-extract-plugin')
 
